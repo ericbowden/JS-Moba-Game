@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<title>Game</title>
+  	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="./KineticJs.js"></script>	
+   	<script src="./view/View.js"></script>
+	<script src="./controller/Controller.js"></script>
+	<script src="./model/Class.js"></script>
+	<script src="./model/Element.js"></script>
+	<script src="./model/Building.js"></script>
+	<script src="./model/Board.js"></script>
+	<script src="./model/Menu.js"></script>
+	<script src="./model/Unit.js"></script>
+	<script src="./model/Player.js"></script>
+	<!--script src="./model/test.js"></script-->
+	<script src="./Stats.js"></script>
+	<script src="./Debug.js"></script>	
+	</head>
+	<body>
+		<!--button id="button-save">save</button>
+		<button id="button-load">load</button>
+		<button id="button-new">new</button-->
+		<div>
+			<br><br><br>Debug:<input id='debug-box' type='checkbox'></input><br>
+			Pause:<input id='debug-pause' type='checkbox'></input> or press 'p'<br>
+			Place<input id='debug-place' type='checkbox'></input>or press 'z'<br><br>
+			Place buildings:<input type="radio" class="debug-radio" name="radio-place" value='building' checked/> or press 'a'<br>
+			Place units:<input type="radio" class="debug-radio" name="radio-place" value='unit' /> or press 's'<br>
+			Team: <select id="debug-building-team"> 
+			  <option value="red">red</option>
+			  <option value="blue">blue</option>
+			</select><br>
+			Size: <input maxlength='2' value='4' style="width:20px" type="text" id="debug-building-size" /><br>
+			
+			Spawn side: <select id="debug-building-spawnSide">
+			<option value="left">left</option>
+			  <option value="right">right</option>
+			</select><br>
+			Spawn Delay: <input maxlength='3' value='33' style="width:20px" type="text" id="debug-building-spawnDelay" /><br>
+			Unit type: <select id="debug-building-unitType">
+			  <option value="sword">sword</option>
+			  <option value="archer">archer</option>
+			  <option value="mage">mage</option>
+			  <option value="sushi1">sushi1</option>
+			  <option value="sushi2">sushi2</option>
+			  <option value="sushi3">sushi3</option>
+			</select><br>
+			Unit size: <input maxlength='2' value='1' style="width:20px" type="text" id="debug-building-unitSize" /><br>
+			Unit sight range: <input maxlength='2' value='3' style="width:20px" type="text" id="debug-building-sight" /><br>
+			Unit Speed Delay: <input maxlength='2' value='1' style="width:20px" type="text" id="debug-building-unitSpeed" /> 0 is fastest<br>
+			Unit Attack Delay: <input maxlength='2' value='5' style="width:20px" type="text" id="debug-building-unitAttack" /> 0 is fastest<br>
+			Unit Attack range: <input maxlength='2' value='1' style="width:20px" type="text" id="debug-building-vRange" /><br>
+			Unit hp: <input maxlength='5' value='10' style="width:50px" type="text" id="debug-building-hp" /><br>
+			Unit dest: <input maxlength='3' value='0' style="width:20px" type="text" id="debug-building-destR" /> <input maxlength='3' value='0' style="width:20px" type="text" id="debug-building-destC" /> or click board to set<br>
+			<br><br>
+			
+		</div>
+  </select>
+	</body>
+</html>
