@@ -201,6 +201,7 @@ var Building = Class.extend({
 	CheckDead: function(){
 		if(this.currHP <= 0) {
 			this.Remove();
+            this.team=='red'?PLAYER2.gold+=100:PLAYER1.gold+=100;
 			return true;
 		}
 		return false;
@@ -214,9 +215,9 @@ var Building = Class.extend({
 		if(unitType == 'sword')
 			return 100;
 		if(unitType == 'archer')
-			return 175;
+			return 125;
 		if(unitType == 'mage')
-			return 250;
+			return 150;
 }
 });
 

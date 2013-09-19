@@ -11,7 +11,41 @@ Player = Class.extend({
 			this[prop] = args[prop];
 			
 		window[this.id] = this;
-	
+        var me = this;
+
+        //inc gold
+        setInterval(function(){
+            me.gold+=5;
+        },2000);
+
+        if(this['isComputer']) {
+            var buyCount = 0;
+            var middle = Math.floor(BOARD.colNum/2);
+            var sideStart = me.team=='red'?3:BOARD.colNum-3;
+            var side = me.team=='red'?1:-1;
+
+            setInterval(function(){
+
+                if(PAUSE || me.gold < 150)
+                    return;
+
+                if(buyCount > 19) //max buildings
+                    buyCount = 0;
+
+                var row = (3+buyCount*6)%BOARD.rowNum;
+                //var col = middle+side*6*Math.floor(buyCount*2/10)+(side*9);
+                var col = sideStart+side*6*Math.floor(buyCount*2/10);
+                //console.log('comp buy',buyCount,row,col);
+                BUILDING_TYPE=['sword','archer','mage'][Math.floor(Math.random()*3)]; //random building
+
+                //var placed = me.PlaceBuilding((3+buyCount*6)%30,BOARD.colNum-21+6*Math.floor(buyCount*2/10));
+                var placed = me.PlaceBuilding(row,col);
+
+                //if(placed || buyCount==17) //skip first building
+                    buyCount++;
+            },100);
+        }
+
 	},
 	
 	Buy: function(type){

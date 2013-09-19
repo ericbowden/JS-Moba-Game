@@ -80,6 +80,7 @@ function OnTimerTick(){
 		if(!BUILDING_MAP[i].CheckDead())
 			BUILDING_MAP[i].CreateUnit();
 	}
+
 	$("#debug-p1-gold").html(PLAYER1.gold);
 	$("#debug-p2-gold").html(PLAYER2.gold);
 	ANIMATE = true;

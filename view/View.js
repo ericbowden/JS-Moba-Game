@@ -87,7 +87,7 @@ function doneLoading(images) {
 	
 	new Board(({
 		id: 'BOARD',
-		rowNum: 20,
+		rowNum: 30,
 		colNum: 60,
 		top: 10,
 		left: 250,
@@ -134,21 +134,25 @@ function doneLoading(images) {
 	new Player(({
 		id: 'PLAYER1',
 		team: 'red',
-		gold: 200,
+		gold: 300,
+        isComputer: true,
 	}));
 	
 	new Player(({
 		id: 'PLAYER2',
 		team: 'blue',
-		gold: 200,
+		gold: 300,
+        isComputer: true,
 	}));
 	
 	CURRENT_PLAYER = PLAYER1;
 	
 	BUILDING_TYPE='sword';
-	PLAYER1.PlaceBuilding(Math.floor(BOARD.rowNum/2),3)
-	BUILDING_TYPE='sword';
-	PLAYER2.PlaceBuilding(Math.floor(BOARD.rowNum/2),BOARD.colNum-3)
+	PLAYER1.PlaceBuilding(Math.floor(BOARD.rowNum/2),3);
+
+	//BUILDING_TYPE='sword';
+	PLAYER2.PlaceBuilding(Math.floor(BOARD.rowNum/2),BOARD.colNum-3);
+
 	/*
 	for(var i = 0; i < 500; i++) {
 		var randVar = Math.ceil(Math.random()*10);

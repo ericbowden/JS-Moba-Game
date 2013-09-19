@@ -460,7 +460,7 @@ var Unit = Class.extend({
 	CheckDead: function(){
 		if(this.currHP <= 0) {
 			this.Remove();
-			this.team=='red'?PLAYER2.gold+=5:PLAYER1.gold+=5;
+			this.team=='red'?PLAYER2.gold+=8:PLAYER1.gold+=8;
 			return true;
 		}
 		return false;
