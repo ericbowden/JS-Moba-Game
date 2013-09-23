@@ -135,7 +135,7 @@ function doneLoading(images) {
 		id: 'PLAYER1',
 		team: 'red',
 		gold: 300,
-        isComputer: true,
+        //isComputer: true,
 	}));
 	
 	new Player(({

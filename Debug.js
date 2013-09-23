@@ -18,6 +18,15 @@ function Debug(){
 		stats.update();
 	}, 1000 / 60 );
 	
+	
+	
+	$("#debug-building-team").change(function(){ 
+		if($('#debug-building-team').val() == 'player1')
+			CURRENT_PLAYER = PLAYER1
+		else
+			CURRENT_PLAYER = PLAYER2;
+	});
+	
 	//debug checkbox-------------------------
 	$("#debug-box").click(function(){ 
 		if($('#debug-box').is(':checked')) {
@@ -54,194 +63,28 @@ function Debug(){
 		}
 	});
 	
-	//radio
-	DEBUG_PLACE_B = true;
-	DEBUG_PLACE_U = false;
-	$(".debug-radio").click(function(){ 
-		if(DEBUG_PLACE_B) {
-			DEBUG_PLACE_U = true;	
-			DEBUG_PLACE_B = false;
-		}
-		else {
-			DEBUG_PLACE_U = false;
-			DEBUG_PLACE_B = true;
-		}
-	});
-	
-	//tracks mouse movements on board-------------------------
-	$('#BOARD').mousemove(function(e){
+	//THIS IS IN BOARD CLASS NOW---------------------------------------
+	/*$("#BOARD").click(function(e){
 		var thisObj = window[this.id];
-			
-		var x = e.pageX - this.offsetLeft;
-		var y = e.pageY - this.offsetTop;
-		var row = Math.floor(y/thisObj.cellSize);
-		var col = Math.floor(x/thisObj.cellSize);
-		
-		/*
-		if(!DEBUG_PLACE)
-			for(var i = 0; i < UNIT_ARRAY.length; i++) {			
-				UNIT_ARRAY[i].SetMoveTo(row,col);
-				//UNIT_ARRAY[i].PathFind(row,col);		
-			}//*/
-	});
-	
-	//tracks where user clicked on board---------------------------------------
-	$("#BOARD").click(function(e){
-		var thisObj = window[this.id];
-		
 		var x = e.pageX - this.offsetLeft;
 		var y = e.pageY - this.offsetTop;
 		var row = Math.floor(y/thisObj.GetCellSize());
 		var col = Math.floor(x/thisObj.GetCellSize());
 		
-		if(DEBUG_PLACE) {
-			//console.log('first');
-			//DEBUG_PLACE = true;
-			//$('#debug-place').is(':checked')
-			$("#debug-place").prop("checked", true);
-			
-			if(thisObj.GetCell(row,col) == 0) {
-			
-				var size = parseInt($('#debug-building-size').val());
-				var unitSize = parseInt($('#debug-building-unitSize').val());
-				var spawnSide = $('#debug-building-spawnSide').val();
-				var unitType = $('#debug-building-unitType').val();
-				var team = $('#debug-building-team').val();
-				var spawnDelay = parseInt($('#debug-building-spawnDelay').val());
-				var unitSpeed = parseInt($('#debug-building-unitSpeed').val());
-				var unitAttack = parseInt($('#debug-building-unitAttack').val());
-				var destC = parseInt($('#debug-building-destC').val());
-				var destR = parseInt($('#debug-building-destR').val());
-				var sight = parseInt($('#debug-building-sight').val());
-				var vRange = parseInt($('#debug-building-vRange').val());
-				var hp = parseInt($('#debug-building-hp').val());;
-				
-				var imgPath = './Images/'+unitType+'.png';	
-				if(unitType=='sword')
-					imgPath = './Images/swordsman.png';
-				else if(unitType=='archer'){
-					imgPath = './Images/archer.png';
-					vRange = 3;
-				}
-				else if(unitType=='mage')
-					imgPath = './Images/mage.png';		
-					
-				if(DEBUG_PLACE_B){
-					//console.log(size, unitSize, spawnSide, unitType, team, imgPath);
-					var countId = 'BUILDING_'+team.toUpperCase()+'_COUNT';
-					var buildingId = 'building_'+team+window[countId];
-					
-					new Building({
-						id: buildingId,
-						board: BOARD,
-						unitArray: UNIT_ARRAY,
-						buildingArray: BUILDING_ARRAY,
-						unitSize: unitSize,
-						row: row, 
-						col: col, 
-						size: size, 
-						spawnSide: spawnSide, 
-						unitType: unitType, 
-						unitImg: imgPath, 
-						team: team,
-						spawnDelay: spawnDelay,
-						unitSpeed: unitSpeed,
-						destinationC: destC,
-						destinationR: destR,
-						maxHP: 100,
-						attackWait: unitAttack,
-					}); 
-
-					//console.log(buildingId);
-					var thisBuilding = window[buildingId];
-					BUILDING_ARRAY.push(thisBuilding);
-					//thisBulding.CreateUnit();
-					
-					window[countId]++;
-				} else if(DEBUG_PLACE_U) {
-				
-					var countId = 'UNIT_'+team.toUpperCase()+'_COUNT';					
-					var unitId = "unit_"+team+unitType+window[countId];
-					window[countId]++; //increment count
-					
-					new Unit(({
-						id: unitId,
-						array: UNIT_ARRAY,
-						board: BOARD,
-						row: row,
-						col: col,
-						size: unitSize,
-						unitImg: imgPath,
-						team: team,
-						moveWait: unitSpeed,
-						maxHP: hp,
-						dmg:	2,
-						sight:	sight,
-						range:	vRange,
-						attackWait: unitAttack,
-					}));
-					UNIT_ARRAY.push(window[unitId]);
-					//window[unitId].SetMoveTo(destR, destC);
-				}
-				
-				
-				/*$('#box-'+row+'-'+col).click(function(e){
-					console.log(unitSize);
-					
-					if(DEBUG_PLACE) {
-						for(var r = 0; r < unitSize; r++)
-							for(var c = 0; c < unitSize; c++)
-								thisObj.array[row+r][col+c] = 0;
-						
-						$('#box-'+row+'-'+col).remove();
-						DEBUG_REMOVE = true;	
-					}
-				});		*/	
-			} 		
-		} else {
-			//DEBUG_REMOVE = false;
-			$('#debug-building-destR').val(row);
-			$('#debug-building-destC').val(col);
-		}
-
-		//UNIT_ARRAY[i].SetMoveTo(row,col);
+		if(PLACE_BUILDING) {
+			if(CURRENT_PLAYER.PlaceBuilding(row,col)){
+				PLACE_BUILDING = false;
+			}
+		}	
 		
+		$('#MENU div').css({'box-shadow': '0px 0px 0px '});
 		console.log('cell['+row+']['+col+']'+', '+thisObj.GetCell(row,col));
-	});
+	});*/
 	
 	//when user presses a debugkey-------------------------------------------
 	$('html').keydown(function(e){
 		var code = (e.keyCode ? e.keyCode : e.which);
 		//console.log(code);
-		
-		//z
-		if(code == 90) {
-			//console.log(DEBUG_PLACE)
-			if(DEBUG_PLACE) {
-				DEBUG_PLACE = false;
-				$("#debug-place").prop("checked", false);
-			}
-			else {
-				DEBUG_PLACE = true;
-				$("#debug-place").prop("checked", true);
-			}
-			
-		}
-		
-		//a is pressed
-		if(code == 65) {
-				DEBUG_PLACE_B = true;
-				DEBUG_PLACE_U = false;
-				$('input:radio[name="radio-place"]').filter('[value="building"]').attr('checked', true);
-			
-		}
-		//if s
-		if(code == 83) {
-				DEBUG_PLACE_B = false;
-				DEBUG_PLACE_U = true;
-				$('input:radio[name="radio-place"]').filter('[value="unit"]').attr('checked', true);
-			
-		}
 		
 		//if p
 		if(code == 80) {

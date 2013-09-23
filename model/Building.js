@@ -143,7 +143,7 @@ var Building = Class.extend({
 		else if(this.unitType=='archer'){
 			unitRange = 3;
 			unitSight = 5;
-			unitMoveRate = 10;
+			unitMoveRate = 8;
 			unitAttkRate = 8;
 			unitDmg = 4;
 			unitHP = 35;
@@ -153,7 +153,7 @@ var Building = Class.extend({
 		else if(this.unitType=='mage'){
 			unitRange = 5;
 			unitSight = 6;
-			unitMoveRate = 12;
+			unitMoveRate = 20;
 			unitAttkRate = 10;
 			unitDmg = 5;
 			unitHP = 15;
