@@ -21,5 +21,5 @@ Each unit has different stats:
 * Archer is fast and can fire fast
 * Mage has a long range and hits hard but has low life
 
-#a
+#
 The project's KineticJS JavaScript Library is outdated. Visit [kineticjs.com](http://kineticjs.com/) to get the updated library.
