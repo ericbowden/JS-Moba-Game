@@ -13,11 +13,11 @@ function Debug(){
 	stats.domElement.style.position = 'fixed';
 	stats.domElement.style.left = '0px';
 	stats.domElement.style.top = '0px';
+	stats.domElement.id = 'statsJS';
 	$('html').append( stats.domElement );
 	setInterval( function () {
 		stats.update();
 	}, 1000 / 60 );
-	
 	
 	
 	$("#debug-building-team").change(function(){ 
@@ -62,24 +62,6 @@ function Debug(){
 			DEBUG_PLACE = true;
 		}
 	});
-	
-	//THIS IS IN BOARD CLASS NOW---------------------------------------
-	/*$("#BOARD").click(function(e){
-		var thisObj = window[this.id];
-		var x = e.pageX - this.offsetLeft;
-		var y = e.pageY - this.offsetTop;
-		var row = Math.floor(y/thisObj.GetCellSize());
-		var col = Math.floor(x/thisObj.GetCellSize());
-		
-		if(PLACE_BUILDING) {
-			if(CURRENT_PLAYER.PlaceBuilding(row,col)){
-				PLACE_BUILDING = false;
-			}
-		}	
-		
-		$('#MENU div').css({'box-shadow': '0px 0px 0px '});
-		console.log('cell['+row+']['+col+']'+', '+thisObj.GetCell(row,col));
-	});*/
 	
 	//when user presses a debugkey-------------------------------------------
 	$('html').keydown(function(e){

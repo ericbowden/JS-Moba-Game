@@ -12,12 +12,12 @@ var Board = Class.extend({
 	
 		this.width = args.colNum*args.cellSize;
 		this.height = args.rowNum*args.cellSize;
-		this.appendTo = 'body';
+		this.appendTo = args.appendTo||'body';
 		//this._super(args);
 		for (var prop in args)
 			this[prop] = args[prop];
 		window[this.id] = this;
-		//test canvas
+
 		this.CreateCanvas();
 		this.CreateArray();
 		
@@ -93,11 +93,10 @@ var Board = Class.extend({
 		return this.cellSize;
 	},
 	
-	//canvas test
 	CreateCanvas: function(){
 		
 		var canvas = $('<div></div>').attr({'id':'BOARD', width: this.width, height: this.height});
-		$('body').append(canvas);
+		$(this.appendTo).append(canvas);
 		$('#BOARD').css({'background-color':'gray','position':'absolute', width: this.width, height: this.height,top: this.top, left: this.left});
 		
 		this.stage = new Kinetic.Stage('BOARD', this.width, this.height);
