@@ -51,11 +51,8 @@ $(document).ready(function(){ //main function
 	var imgPath = "./Images/";
 	var sources = {
 		sword: imgPath+"swordsman.png",
-		//swordblue: imgPath+"swordsman.png",
 		archer: imgPath+"archer.png",
 		mage: imgPath+"mage.png",
-		neko: imgPath+"neko.png",
-		background: imgPath+"back.png",
 		blueb: imgPath+"blueb.png",
 		redb: imgPath+"redb.png",
 		
