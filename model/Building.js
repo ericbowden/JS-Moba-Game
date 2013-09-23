@@ -30,7 +30,6 @@ var Building = Class.extend({
 		//this._super(args);
 		for (var prop in args)
 			this[prop] = args[prop];
-		//window[this.id] = this; 
 		
 		this.SetPos(this.row,this.col); //sets
 		this.AddShape();
@@ -63,7 +62,6 @@ var Building = Class.extend({
 		var height = this.height;
 	
 		this.shape = new Kinetic.Shape(function(){
-			//console.log(IMAGES[team+'b'], col, row);
                 var context = this.getContext();
                 context.drawImage(IMAGES[team+'b'], left, top,width, height);
                 // draw invisible detectable path for image
@@ -195,7 +193,6 @@ var Building = Class.extend({
 	
 	TakeDamage: function(dmg){
 		this.currHP -= dmg;
-		//console.log(this.id, this.currHP);
 	},
 	
 	CheckDead: function(){

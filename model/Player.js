@@ -33,16 +33,13 @@ Player = Class.extend({
                     buyCount = 0;
 
                 var row = (3+buyCount*6)%BOARD.rowNum;
-                //var col = middle+side*6*Math.floor(buyCount*2/10)+(side*9);
+               
                 var col = sideStart+side*6*Math.floor(buyCount*2/10);
-                //console.log('comp buy',buyCount,row,col);
                 BUILDING_TYPE=['sword','archer','mage'][Math.floor(Math.random()*3)]; //random building
 
-                //var placed = me.PlaceBuilding((3+buyCount*6)%30,BOARD.colNum-21+6*Math.floor(buyCount*2/10));
                 var placed = me.PlaceBuilding(row,col);
 
-                //if(placed || buyCount==17) //skip first building
-                    buyCount++;
+                buyCount++;
             },100);
         }
 
@@ -94,7 +91,6 @@ Player = Class.extend({
 				spawnDelay = 120;
 			}
 			
-			//console.log(size, unitSize, spawnSide, unitType, team, unitImg);
 			var countId = 'BUILDING_'+this.team.toUpperCase()+'_COUNT';
 			var buildingId = 'building_'+this.team+window[countId];
 				

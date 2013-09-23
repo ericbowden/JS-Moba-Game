@@ -15,7 +15,6 @@ var Element = Class.extend({
 		
 		this.CreateEl(this.appendTo);
 		this.InitCss((this.css)?this.css:{});
-		//delete this.css;
 	},
 
 	CreateEl: function(appendDiv){

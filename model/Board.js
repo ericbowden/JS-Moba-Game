@@ -110,9 +110,6 @@ var Board = Class.extend({
 		this.stage.add(this.buildLayer);
 		this.stage.add(this.unitsLayer);
 		this.stage.add(this.animLayer);
-		
-		//drawBackground(triangle, images.neko, 'TEXT');
-		//this.backLayer.add(yodaImg);
 	},
 	
 	CreateArray: function(){
