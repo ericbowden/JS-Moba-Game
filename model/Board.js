@@ -23,8 +23,9 @@ var Board = Class.extend({
 		
 		$("#BOARD").click(function(e){
 			var thisObj = window['BOARD'];
-			var x = e.pageX - this.offsetLeft;
-			var y = e.pageY - this.offsetTop;
+			var offset = $(this).offset();
+			var x = e.pageX - offset.left;
+			var y = e.pageY - offset.top;
 			var row = Math.floor(y/thisObj.GetCellSize());
 			var col = Math.floor(x/thisObj.GetCellSize());
 			
@@ -55,8 +56,9 @@ var Board = Class.extend({
 			
 			if(MENU_CLICKED) {
 				var thisObj = window['BOARD'];
-				var x = e.pageX - this.offsetLeft;
-				var y = e.pageY - this.offsetTop;
+				var offset = $(this).offset();
+				var x = e.pageX - offset.left;
+				var y = e.pageY - offset.top;
 				var row = Math.floor(y/thisObj.GetCellSize());
 				var col = Math.floor(x/thisObj.GetCellSize());
 				var cellSize = thisObj.GetCellSize();
